@@ -1,0 +1,48 @@
+## Code Book for “Human Activity Recognition using SmartPhones” Tidy Data
+The final table from the script “run_analysis.r” is called “mean_tidy”.  
+It is run through the melt function from the “reshape2” library, 
+and then aggregated down to calculate mean values.
+
+It consists of 4 columns:
+#Subject 
+- Original data_type from the incoming tables was integer, but has been transformed 
+into a data type of factor, to facilitate aggregating the finale “value” column.
+
+#Activity_Lbl 
+- Character column, converted to a factor, representing the text description of the type of 
+activity the subject was engaged in at the time: Laying, Sitting, Standing, Walking, Walking_Downstairs, Walking_Upstairs.
+
+#variable 
+- text description of the measure made on the activity, converted to a factor.  
+Final values are a subset of the values in the original tables, rendered down to Mean and Std_Dev values only.  
+They consist of:
+
+tBodyAccel-MeanOf_X                tBodyAccel-MeanOf_Y                tBodyAccel-MeanOf_Z               
+tBodyAccel-StdDevOf_X              tBodyAccel-StdDevOf_Y              tBodyAccel-StdDevOf_Z             
+tGravityAccel-MeanOf_X             tGravityAccel-MeanOf_Y             tGravityAccel-MeanOf_Z            
+tGravityAccel-StdDevOf_X           tGravityAccel-StdDevOf_Y           tGravityAccel-StdDevOf_Z          
+tBodyAccelJerk-MeanOf_X            tBodyAccelJerk-MeanOf_Y            tBodyAccelJerk-MeanOf_Z           
+tBodyAccelJerk-StdDevOf_X          tBodyAccelJerk-StdDevOf_Y          tBodyAccelJerk-StdDevOf_Z         
+tBodyGyro-MeanOf_X                 tBodyGyro-MeanOf_Y                 tBodyGyro-MeanOf_Z                
+tBodyGyro-StdDevOf_X               tBodyGyro-StdDevOf_Y               tBodyGyro-StdDevOf_Z              
+tBodyGyroJerk-MeanOf_X             tBodyGyroJerk-MeanOf_Y             tBodyGyroJerk-MeanOf_Z            
+tBodyGyroJerk-StdDevOf_X           tBodyGyroJerk-StdDevOf_Y           tBodyGyroJerk-StdDevOf_Z          
+tBodyAccelMagnitude-Mean           tBodyAccelMagnitude-StdDev         tGravityAccelMagnitude-Mean       
+tGravityAccelMagnitude-StdDev      tBodyAccelJerkMagnitude-Mean       tBodyAccelJerkMagnitude-StdDev    
+tBodyGyroMagnitude-Mean            tBodyGyroMagnitude-StdDev          tBodyGyroJerkMagnitude-Mean       
+tBodyGyroJerkMagnitude-StdDev      fBodyAccel-MeanOf_X                fBodyAccel-MeanOf_Y               
+fBodyAccel-MeanOf_Z                fBodyAccel-StdDevOf_X              fBodyAccel-StdDevOf_Y             
+fBodyAccel-StdDevOf_Z              fBodyAccelJerk-MeanOf_X            fBodyAccelJerk-MeanOf_Y           
+fBodyAccelJerk-MeanOf_Z            fBodyAccelJerk-StdDevOf_X          fBodyAccelJerk-StdDevOf_Y         
+fBodyAccelJerk-StdDevOf_Z          fBodyGyro-MeanOf_X                 fBodyGyro-MeanOf_Y                
+fBodyGyro-MeanOf_Z                 fBodyGyro-StdDevOf_X               fBodyGyro-StdDevOf_Y              
+fBodyGyro-StdDevOf_Z               fBodyAccelMagnitude-Mean           fBodyAccelMagnitude-StdDev        
+fBodyBodyAccelJerkMagnitude-Mean   fBodyBodyAccelJerkMagnitude-StdDev fBodyBodyGyroMagnitude-Mean       
+fBodyBodyGyroMagnitude-StdDev      fBodyBodyGyroJerkMagnitude-Mean    fBodyBodyGyroJerkMagnitude-StdDev
+
+#value 
+- consists of the calculated mean of the original values in the incoming table, 
+aggregated by the previous three columns, “Subject”, “Activity_Lbl”, and “variable”.  
+The units of this column is not specifically stated as a unit besides the description 
+“3-axial angular velocity at a constant rate of 50Hz”.  So, the final value would be
+the mean of measurements of that value.
